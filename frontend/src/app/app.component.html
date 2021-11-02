@@ -1,1 +1,15 @@
-<app-navbar></app-navbar>
+<app-navbar [clazzes]="clazzes"
+            header="Klassenauswahl:"
+            (selected)="onClazzSelected($event)"></app-navbar>
+<br>
+<app-log></app-log>
+
+<div>
+  <span class="gender">m/w</span>
+  <span class="name">Name</span>
+  <span class="age">Alter</span>
+  <span class="registered">Reg</span>
+  <span class="clazz">Klasse</span>
+</div>
+<app-student-row *ngFor="let student of students" [student]="student"
+                 (studentRemoved)="updateStudents($event)"></app-student-row>

@@ -1,1 +1,4 @@
-<p>navbar works!</p>
+<div>
+  {{header}}
+  <button *ngFor="let clazz of clazzes" (click)="clazzSelected(clazz.id)">{{clazz.name}}</button>
+</div>

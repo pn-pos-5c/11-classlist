@@ -4,15 +4,21 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import { HttpClientModule } from "@angular/common/http";
+import { StudentRowComponent } from './components/student-row/student-row.component';
+import {FormsModule} from "@angular/forms";
+import { LogComponent } from './components/log/log.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavbarComponent
+    NavbarComponent,
+    StudentRowComponent,
+    LogComponent
   ],
   imports: [
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

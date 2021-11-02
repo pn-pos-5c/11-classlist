@@ -1,0 +1,9 @@
+<div>
+  <span class="img" [ngClass]="{'male' : student.gender === 'M',
+                    'female' : student.gender === 'F'}"></span>
+  <span class="name">{{student.firstname}} {{student.lastname}}</span>
+  <span>{{getAgeString(student.age)}}+</span>
+  <span class="img" [ngClass]="{'registered' : student.registered}" (click)="setRegistered()"></span>
+  <span><input [(ngModel)]="student.age" class="age" type="number" (change)="updateAge()"></span>
+  <span class="buttons"><button *ngFor="let clazz of clazzes" (click)="setClazz(clazz)">{{clazz.name}}</button></span>
+</div>

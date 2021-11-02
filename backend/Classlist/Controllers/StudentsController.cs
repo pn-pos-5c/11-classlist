@@ -43,5 +43,16 @@ namespace Classlist.Controllers
             if (student == null) return BadRequest("Student not found!");
             return Ok(student);
         }
+
+        [HttpPut]
+        [Route("setRegistered")]
+        public IActionResult SetRegistered(int studentId, bool registered)
+        {
+            if (studentId < 0) return BadRequest("Invalid id!");
+            var student = studentsService.SetRegistered(studentId, registered);
+
+            if (student == null) return BadRequest("Student not found!");
+            return Ok(student);
+        }
     }
 }

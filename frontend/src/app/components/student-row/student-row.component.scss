@@ -1,0 +1,32 @@
+.img {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  margin: 0 10px;
+}
+
+.male {
+  background: url("/assets/male.png") center;
+  @extend .img;
+}
+
+.female {
+  background: url("/assets/female.png") center;
+  @extend .img;
+}
+
+.registered {
+  background: url("/assets/registered.png") center;
+  @extend .img;
+}
+
+.name {
+  display: inline-block;
+  width: 150px;
+}
+
+.age {
+  display: inline-block;
+  width: 40px;
+  margin-right: 10px;
+}

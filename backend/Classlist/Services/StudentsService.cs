@@ -41,5 +41,17 @@ namespace Classlist.Services
 
             return student;
         }
+
+        public Student SetRegistered(int studentId, bool registered)
+        {
+            var student = db.Students.FirstOrDefault(student => student.Id == studentId);
+            if (student != null)
+            {
+                student.Registered = registered;
+                db.SaveChanges();
+            }
+
+            return student;
+        }
     }
 }

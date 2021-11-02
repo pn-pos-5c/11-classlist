@@ -1,4 +1,7 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
+import Clazz from "./models/Clazz";
+import {DataProviderService} from "./services/data-provider.service";
+import Student from "./models/Student";
 
 @Component({
   selector: 'app-root',
@@ -6,5 +9,24 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'classlist';
+  clazzes: Clazz[] = [];
+  students: Student[] = [];
+
+  constructor(private dataProvider: DataProviderService) {
+  }
+
+  ngOnInit(): void {
+    this.dataProvider.getClazzes().subscribe(resolve => this.clazzes = resolve);
+  }
+
+  onClazzSelected(clazzId: number) {
+    this.dataProvider.getStudentsForClazz(clazzId).subscribe(resolve => {
+      this.students = resolve;
+      console.log(this.students);
+    });
+  }
+
+  updateStudents(studentId: number) {
+    this.students = this.students.filter(student => student.id !== studentId);
+  }
 }
